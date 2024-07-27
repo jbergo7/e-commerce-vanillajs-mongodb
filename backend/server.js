@@ -24,8 +24,11 @@ mongoose
   });
 const app = express();
 const port = 5000;
+
+
 app.use(cors());
-app.use('/api/users', userRouter)
+app.use(express.json());
+app.use('/api/users', userRouter);
 app.get("/api/products", (req, res) =>{
  res.send(data.products);
 });
@@ -38,7 +41,10 @@ app.get('/api/products/:id', (req, res) => {
     }
     
 });
-
+app.use((err, req, res, next) => {
+ const status = err.name && err.name === 'ValidationError'? 400: 500;
+ res.status(status).send({ message: err.message });
+});
 app.listen(port, ()=>{
     console.log("Server is listening at http://localhost:" + port);
 });

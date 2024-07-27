@@ -3,6 +3,8 @@ import ProductScreen from "./screens/ProductScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import { parseRequestUrl } from "./utils.js";
 import CartScreen from "./screens/CartScreen.js";
+import SigninScreen from "./screens/SigninScreen.js";
+import Header from "./components/Header.js";
 
 
 const routes = {
@@ -10,6 +12,7 @@ const routes = {
     '/product/:id': ProductScreen,
     '/cart/:id': CartScreen,
     '/cart': CartScreen,
+    '/signin': SigninScreen,
 }
 const router = async() => {
     const request = parseRequestUrl();
@@ -17,6 +20,9 @@ const router = async() => {
     (request.id ? '/:id': '') +
     (request.verb ? `/${request.verb}` : '');
     const screen = routes[parseURL]? routes[parseURL] : Error404Screen; 
+    const header = document.getElementById('header-container');
+    header.innerHTML = await Header.render();
+    await Header.after_render();
     const main = document.getElementById('main-container');
     main.innerHTML = await screen.render();
     await screen.after_render();
