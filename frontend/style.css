@@ -338,6 +338,7 @@ footer {
   padding: 1rem;
   margin: 1rem;
 }
+
 .order-action{
   flex: 1 1 25rem;
   border: 0.1rem #c0c0c0 solid;
@@ -345,6 +346,7 @@ footer {
   background-color: #fcfcfc;
   padding: 1rem;
   margin: 1rem;
+  
 }
 .order-action > ul {
   padding: 0;

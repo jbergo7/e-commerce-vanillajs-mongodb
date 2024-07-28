@@ -12,7 +12,7 @@ export default {
         countInStock: 6,
       },
       {
-        _id: '2',
+        _id: '222222222222222222222222',
         name: 'Nike Full-Zip Hoodie Mens Workout Sweatshirt',
         category: 'Shirts',
         image: '/images/product-2.jpg',
@@ -23,7 +23,7 @@ export default {
         countInStock: 0,
       },
       {
-        _id: '3',
+        _id: '333333333333333333333333',
         name: 'Adidas Mens Long Sleeve Hoodie',
         category: 'Shirts',
         image: '/images/product-3.jpg',
@@ -33,7 +33,7 @@ export default {
         numReviews: 45,
       },
       {
-        _id: '4',
+        _id: '444444444444444444444444',
         name: 'Under Armour Mens Sportstyle Tricot Joggers',
         category: 'Pants',
         image: '/images/product-4.jpg',
@@ -44,7 +44,7 @@ export default {
         countInStock: 6,
       },
       {
-        _id: '5',
+        _id: '555555555555555555555555',
         name: 'Champion Mens Graphic Powerblend Fleece Jogger',
         category: 'Pants',
         image: '/images/product-5.jpg',
@@ -55,7 +55,7 @@ export default {
         countInStock: 6,
       },
       {
-        _id: '6',
+        _id: '666666666666666666666666',
         name: 'Aelfric Eden Mens Joggers Pants Long Multi-Pockets',
         category: 'Pants',
         image: '/images/product-6.jpg',
