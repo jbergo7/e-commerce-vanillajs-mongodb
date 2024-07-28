@@ -8,14 +8,11 @@ const Header = {
             <a href="/#/">ShoeCorner</a>
         </div>
         <div>
-            ${name 
-                ? `<a href="/#/profile">${name}</a>`
-                : `<a href="/#/signin">Sign-In</a>`
-            }
+            ${name ? `<a href="/#/profile">${name}</a>` : `<a href="/#/signin">Sign-In</a>`}
             <a href="/#/cart">Cart</a>
         </div>`;
     },
-    after_render: () => { },
+    after_render: () => {},
 };
 
 export default Header;
