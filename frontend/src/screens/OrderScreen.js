@@ -1,12 +1,12 @@
-import  {parseRequestUrl} from '../utils'
-import {getOrder} from '../api';
+import { parseRequestUrl } from '../utils'
+import { getOrder } from '../api';
 
 
 const OrderScreen = {
     after_render: async () => {
 
     },
-    render: async() => {
+    render: async () => {
         const request = parseRequestUrl();
         const {
             _id,
@@ -33,20 +33,14 @@ const OrderScreen = {
                      <div>
                         ${shipping.address}, ${shipping.city}, ${shipping.postalcode}, ${shipping.country}
                      </div>
-                     ${isDelivered
-                        ? `<div class="success">Delivered at ${deliveredAt}</div>`
-                        : `<div class="error">Not Delivered</div>`
-                     }
+                     ${isDelivered ? `<div class="success">Delivered at ${deliveredAt}</div>` : `<div class="error">Not Delivered</div>`}
                     </div>
                     <div>
                      <h2>Payment</h2>
                      <div>
                         Payment Method: ${payment.paymentMethod}
                      </div>
-                     ${isPaid
-                        ? `<div class="success">Paid at ${paidAt}</div>`
-                        : `<div class="error">Unpaid</div>`
-                     }
+                     ${isPaid ? `<div class="success">Paid at ${paidAt}</div>` : `<div class="error">Unpaid</div>`}
                     </div>
                     <div>
                      <ul class="cart-list-container">
@@ -67,8 +61,7 @@ const OrderScreen = {
                           </div>
                           <div class="cart-price"> $${item.price}</div>
                          </li>
-                        `)
-                        .join('\n')}
+                        `).join('\n')}
                      </ul>
                     </div>
                 </div>
