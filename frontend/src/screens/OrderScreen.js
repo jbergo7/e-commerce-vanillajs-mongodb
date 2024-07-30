@@ -1,4 +1,4 @@
-import { hideLoading, parseRequestUrl, showLoading, showMessage } from '../utils'
+import { hideLoading, parseRequestUrl, showLoading, showMessage, rerender} from '../utils'
 import { getOrder, getPaypalClientId, payOrder } from '../api';
 import { getPayment } from '../localStorage';
 
@@ -51,14 +51,16 @@ const handlePayment = (clientId, totalPrice) => {
                 });
                 hideLoading();
                 showMessage('Payment was successfull.', () => {
-                    render(OrderScreen);
+                    rerender(OrderScreen);
                 });
             });
+          },
         },
-    }, '#paypal-button').then(()=>{
+        '#paypal-button'
+      ).then(() => {
         hideLoading();
-    });
-};
+      });
+    };
 const OrderScreen = {
     after_render: async () => {
 
