@@ -48,7 +48,7 @@ const handlePayment = (clientId, totalPrice) => {
                     orderID: data.orderID,
                     payerID: data.payerID,
                     paymentID: data.paymentID,
-                })
+                });
                 hideLoading();
                 showMessage('Payment was successfull.', () => {
                     render(OrderScreen);
