@@ -1,5 +1,5 @@
 import { getProduct } from '../api';
-import { parseRequestUrl } from '../utils';
+import { hideLoading, parseRequestUrl, showLoading } from '../utils';
 import Rating from '../components/Rating'
 
 const ProductScreen = {
@@ -10,11 +10,13 @@ const ProductScreen = {
       });  
     },
     render: async () => {
-        const request = parseRequestUrl();      
+        const request = parseRequestUrl(); 
+        showLoading();     
         const product = await getProduct(request.id);
         if(product.error){
             return (`</div>${product.error}</div>`);
         }
+        hideLoading();
         return `
         <div class="content">
 
@@ -33,10 +35,7 @@ const ProductScreen = {
                 <h1>${product.name}</h1>
              </li>
              <li>
-                ${Rating.render({
-                    value: product.rating, 
-                    text: `${product.numReviews} reviews`,
-                })}
+                ${Rating.render({value: product.rating, text: `${product.numReviews} reviews`,})}
              </li>
              <li>
                Price: <strong>$${product.price}</strong>
@@ -56,9 +55,7 @@ const ProductScreen = {
                 </li>
                 <li>
                     Status: 
-                        ${product.countInStock > 0 ? `<span class="success">In Stock </span>` :
-                        `<span class="error">Unavailable</span>`    
-                        }
+                        ${product.countInStock > 0 ? `<span class="success">In Stock </span>` : `<span class="error">Unavailable</span>`}
                 </li>
                 <li>
                     <button id="add-button" class="fw primary">Add to Cart</button>
